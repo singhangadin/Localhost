@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:clickable="false">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/wifi_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:clickable="false"
+        tools:text="Name"/>
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/checkList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+</android.support.v7.widget.LinearLayoutCompat>
