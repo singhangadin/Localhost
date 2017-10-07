@@ -1,7 +1,6 @@
 package com.github.angads25.internalnavigation;
 
 import android.content.Context;
-import android.net.wifi.ScanResult;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +16,10 @@ import java.util.ArrayList;
  */
 
 class WifiListAdapter extends RecyclerView.Adapter<WifiListAdapter.WifiListHolder> {
-    private ArrayList<ScanResult> scanList;
+    private ArrayList<RouterListItem> scanList;
     private Context context;
 
-    WifiListAdapter(ArrayList<ScanResult> scanList, Context context) {
+    WifiListAdapter(ArrayList<RouterListItem> scanList, Context context) {
         this.scanList = scanList;
         this.context = context;
     }
@@ -33,9 +32,9 @@ class WifiListAdapter extends RecyclerView.Adapter<WifiListAdapter.WifiListHolde
 
     @Override
     public void onBindViewHolder(WifiListHolder holder, int position) {
-        holder.ssidLabel.setText(scanList.get(position).SSID);
-        holder.macLabel.setText(scanList.get(position).BSSID);
-        holder.strengthLabel.setText(scanList.get(position).level + "");
+        holder.ssidLabel.setText(scanList.get(position).getSSID());
+        holder.macLabel.setText(scanList.get(position).getBSSID());
+        holder.strengthLabel.setText(scanList.get(position).getStrength() + "");
     }
 
     @Override

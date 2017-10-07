@@ -16,6 +16,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class ScanActivity extends AppCompatActivity {
     private WifiManager mainWifiObj;
     private WifiScanReceiver wifiReciever;
 
-    private ArrayList<ScanResult> scanResult;
+    private ArrayList<RouterListItem> scanResult;
     private WifiListAdapter listAdapter;
 
     private Set<String> savedSSIDS;
@@ -68,9 +69,14 @@ public class ScanActivity extends AppCompatActivity {
             scanResult.clear();
             for(ScanResult result: wifiScanList) {
                 if(savedSSIDS.contains(result.SSID)) {
-                    scanResult.add(result);
+                    RouterListItem item = new RouterListItem();
+                    item.setSSID(result.SSID);
+                    item.setBSSID(result.BSSID);
+                    item.setStrength(result.level);
+                    scanResult.add(item);
                 }
             }
+            Collections.sort(scanResult);
             listAdapter.notifyDataSetChanged();
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
