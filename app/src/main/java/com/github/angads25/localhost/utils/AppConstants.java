@@ -9,4 +9,5 @@ package com.github.angads25.localhost.utils;
 public class AppConstants {
     public static final String BASE_URL = "http://10.1.24.66:8080";
     public static final String LEARN_URL = "api/learn";
+    public static final String PREDICT_URL = "api/predict";
 }

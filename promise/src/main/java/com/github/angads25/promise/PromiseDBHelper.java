@@ -125,6 +125,7 @@ public class PromiseDBHelper extends SQLiteOpenHelper {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
+                    cancelRequest(request.getRequestId());
                 }
             }){
                 @Override

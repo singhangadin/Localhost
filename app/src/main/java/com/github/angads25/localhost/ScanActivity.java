@@ -88,7 +88,7 @@ public class ScanActivity extends AppCompatActivity {
                     item.setBSSID(result.BSSID);
                     item.setStrength(result.level);
                     scanResult.add(item);
-                    if(count < 100) {
+                    if(count < 1) {
                         try {
                             object.put(result.SSID + " " +result.BSSID, Math.abs(result.level));
                         } catch (JSONException e) {
@@ -97,10 +97,10 @@ public class ScanActivity extends AppCompatActivity {
                     }
                 }
             }
-            if(count < 10) {
+            if(count < 1) {
                 buffer.append(object.toString());
                 count++;
-            } else if(count == 10) {
+            } else if(count == 1) {
                 Log.e("TAG", buffer.toString());
                 Request request = new Request();
                 request.setUrl(AppConstants.BASE_URL + "/" + AppConstants.LEARN_URL);
@@ -110,7 +110,7 @@ public class ScanActivity extends AppCompatActivity {
                 try {
                     String token = FirebaseInstanceId.getInstance().getToken();
                     header.put("fcmToken", token);
-                    header.put("","");
+                    header.put("Content-Type", "application/x-www-form-urlencoded");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

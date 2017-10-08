@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circular="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.lylc.widget.circularprogressbar.example.CircularProgressBar
+        android:id="@+id/circularprogressbar1"
+        android:layout_width="120dip"
+        android:layout_height="120dip"
+        android:layout_marginTop="10dip"
+        android:layout_gravity="center"
+        circular:subtitle="Hold Still"/>
+</android.support.v7.widget.LinearLayoutCompat>
